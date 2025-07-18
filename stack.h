@@ -1,63 +1,32 @@
-#ifndef MY_STACK_H
-#define MY_STACK_H
+#ifndef STCS_H
+#define STCS_H
 #include<iostream>
 using namespace std;
 
-#define size 100
-int stack[size];
-int top = -1;
-
-void push(int val)
+int stack[500]; // created stack
+int top = -1; 
+ 
+void push(int val) // psuh fun
 {
-    if(top >= size-1)
-    {
-        cout << "Stack is Overflowed\n";
-        return ;
-    }
-    else
-    {
-        stack[top++] = val;
-    }
+    top++;
+    stack[top] = val;
+    
 }
-int pop()
+void pop(int val) // pop fun
+{
+    top--;
+    cout << "Elemet is poped" << stack[top] << endl;
+}
+void peek() // peek fun
+{
+    cout << stack[top];
+}
+void display() // display fun
 { 
-   if(top == -1)
-   {
-   cout <<"Stack is UnderFlowed\n";
-   }
-   else
-   {
-    return stack[top--];
-   }
-}
-int peek()
-{
-   if(top== -1)
-   {
-    cout << "Stack is Empty";
-   }
-   else
-   {
-     return stack[top];
-   }
-}
-bool IsEmpty()
-{
-    return top == -1;
-}
-bool IsFull()
-{
-    return top = size -1;
-}
-void display()
-{
-    if(top == -1)
-    {
-    cout<< "Stack is Empty\n";
-    }
-    for(int i = top;i>=0;i--)
+    for(int i=top;i>=0;i--)
     {
         cout << stack[i] << " ";
     }
 }
+ 
 #endif
